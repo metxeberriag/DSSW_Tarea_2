@@ -13,9 +13,20 @@ class RegisterHandler(webapp2.RequestHandler):
                 $(document).on('click', '#enviar', function(e) {
                     $('#errorEmail').text(' ');
                     $('#errorPassword').text(' ');
+                    $('#errorPassword1').text(' ');
                     
                     if ($('#password1').val()!=$('#password2').val()) {
                         $('#errorPassword').text('Las contraseñas no son las mismas!');
+                        e.preventDefault();
+                    }
+                    
+                    if ($('#password1').val()=='') {
+                        $('#errorPassword1').text('Hay que rellenar la contraseña!');
+                        e.preventDefault();
+                    }
+                    
+                    if ($('#password2').val()=='') {
+                        $('#errorPassword').text('Hay que rellenar la contraseña!');
                         e.preventDefault();
                     }
                     
@@ -41,6 +52,7 @@ class RegisterHandler(webapp2.RequestHandler):
                         <tr>
                             <td class="label"> Password </td>
                             <td> <input type="password" name="password" id="password1" value="" placeholder="Tu contraseña..."required="true"></td>
+                            <td> <span id="errorPassword1" style="color:red"></span> </td>
                         </tr>
                         <tr>
                             <td class="label">Repetir Password </td>
