@@ -9,7 +9,7 @@ handlers:
   static_dir: static/imagenes
   
 - url: /scripts
-  static_dir: statis/scripts
+  static_dir: static/scripts
 
 - url: /styles
   static_dir: static/estilos
